@@ -1,0 +1,21 @@
+name: Moodle Plugin CI
+
+# Runs the shared Moodle plugin CI: see https://github.com/verzog/moodle-ci-workflows.
+# Its default matrix is Moodle 5.1 to 5.3 LTS (PostgreSQL 17 and MariaDB 11) plus Moodle main, which is allowed to
+# fail. MOODLE_500_STABLE is deliberately excluded: it is below the 5.1 baseline in version.php.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# Cancel an in-progress run when a newer commit lands on the same ref.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  ci:
+    uses: verzog/moodle-ci-workflows/.github/workflows/moodle-plugin-ci.yml@v1

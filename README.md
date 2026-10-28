@@ -17,7 +17,7 @@ It is a self-contained activity module with no external plugin dependencies.
 
 ## Requirements
 
-* Moodle 5.0 or later (tested up to Moodle 5.3).
+* Moodle 5.1 to 5.3 LTS.
 * PHP 8.2, 8.3 or 8.4 (per the requirements of the Moodle version in use).
 * PostgreSQL, MySQL or MariaDB.
 
